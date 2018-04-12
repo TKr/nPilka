@@ -1,1 +1,196 @@
 /* You can add global styles to this file, and also import other style files */
+body, html { margin: 0px; padding: 0px; font-family: "Times New Roman";}
+table {border: none;border-collapse : collapse;}
+table td, table th {padding : 0;}
+form { /*display: none*/ }
+
+body {
+	overflow: hidden;
+}
+
+#game {
+	background: url("./assets/image/tlo.jpg") top left no-repeat;
+	height: 640px;
+	width: 360px;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+#moves {
+	display: none;
+	background: url("./assets/image/tlo.jpg") top left no-repeat;
+	height: 640px;
+	width: 360px;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+
+#infopage {
+	display: none;
+	background: url("./assets/image/tlo.jpg") top left no-repeat;
+	height: 640px;
+	width: 360px;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+#quitpage {
+	display: none;
+	background: url("./assets/image/tlo.jpg") top left no-repeat;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	width: 360px;
+	top: 0px;
+	left: 0px;
+}
+
+#badrotation {
+	display: none;
+	background: url("./assets/image/tlo_clear_r.jpg") top left no-repeat;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	color: black;
+	font-size: 20px;
+}
+
+#badrotation img {
+	margin-bottom: -20px;
+}
+
+#badrotation span {
+	font-size: 40px;
+}
+
+/* moves list*/
+#log {
+	background: none;
+	border: 1px dotted black;
+	color: black;
+	position: absolute;
+	top: 100px;
+	left: 50px;
+	width: 238px;
+	height: 400px;
+	padding: 10px;
+	overflow-y: auto;
+	font-family: monospace;
+	white-space: pre;
+}
+
+.log_move {
+	white-space: pre;
+	}
+
+
+
+.boisko { width: 360px; height: 640px; overflow: hidden; position: relative; background: url("./assets/image/tlo_boisko.png") no-repeat top left; }
+.box { width: 5px; height: 5px; position: absolute; /* background-color: green; */}
+.boxp { width: 5px; height: 5px; position: relative; }
+.box-click { z-index:100; width:34px; height: 34px; top: -15px; left: -15px; position: absolute; /* background-color: green; */ }
+
+.redp1, .redp8, .redp9, .redp10, .redm1, .redm8, .redm9, .redm10, .bluep1, .bluep8, .bluep9, .bluep10, .bluem1, .bluem8, .bluem9, .bluem10 { position: absolute; z-index: 1; }
+
+.redp1 { background: url("./assets/image/red_horizontal.png") no-repeat top left; width: 50px; height: 5px;  }
+.redp8 { background: url("./assets/image/red_skos_l.png") no-repeat top left; margin-top: -45px; margin-left: -45px;  width: 50px; height: 50px; }
+.redp9 { background: url("./assets/image/red_vertical.png") no-repeat top left; width: 5px; height: 50px; margin-top: -45px; }
+.redp10{ background: url("./assets/image/red_skos_p.png") no-repeat top left; width: 50px; height: 50px; margin-top: -45px; }
+.redm1 { background: url("./assets/image/red_horizontal.png") no-repeat top left; width: 50px; height: 5px; margin-left: -45px; }
+.redm8 { background: url("./assets/image/red_skos_l.png") no-repeat top left; width: 50px; height: 50px; }
+.redm9 { background: url("./assets/image/red_vertical.png") no-repeat top left; width: 5px; height: 50px; }
+.redm10{ background: url("./assets/image/red_skos_p.png") no-repeat top left; width: 50px; height: 50px; margin-left: -45px; }
+
+.bluep1 { background: url("./assets/image/blue_horizontal.png") no-repeat top left; width: 50px; height: 5px;  }
+.bluep8 { background: url("./assets/image/blue_skos_l.png") no-repeat top left; margin-top: -45px; margin-left: -45px;  width: 50px; height: 50px; }
+.bluep9 { background: url("./assets/image/blue_vertical.png") no-repeat top left; width: 5px; height: 50px; margin-top: -45px; }
+.bluep10{ background: url("./assets/image/blue_skos_p.png") no-repeat top left; width: 50px; height: 50px; margin-top: -45px; }
+.bluem1 { background: url("./assets/image/blue_horizontal.png") no-repeat top left; width: 50px; height: 5px; margin-left: -45px; }
+.bluem8 { background: url("./assets/image/blue_skos_l.png") no-repeat top left; width: 50px; height: 50px; }
+.bluem9 { background: url("./assets/image/blue_vertical.png") no-repeat top left; width: 5px; height: 50px; }
+.bluem10{ background: url("./assets/image/blue_skos_p.png") no-repeat top left; width: 50px; height: 50px; margin-left: -45px; }
+
+
+#pilka {
+	position: absolute; z-index: 90;
+	width: 25px; height: 25px;
+	margin-top: -10px;
+	margin-left: -10px;
+	background: url("./assets/image/ball.png") no-repeat top left;
+}
+
+
+
+#controls { top: 500px; position: absolute; }
+
+.control-button {
+  padding: 0px 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-block;
+  margin: 1px;
+}
+
+#thinking { display: none }
+
+#PI {
+    left: 100px;
+    position: absolute;
+    top: 10px;
+    display: none;
+}
+.nChess_b {
+    /*background-color: #888888;*/
+
+}
+
+.nChess_w {
+    /*background-color: #CCCCCC;*/
+}
+
+.nChess_t {
+    margin-top: 0px;
+   /* background-color: #DDDDDD; */
+}
+
+.nChess_Table {
+    left: 469px;
+    /*position: absolute;*/
+    top: 5px;
+}
+.nChess_Text {
+    color: black;
+    font-size: 25px;
+    left: 0px;
+    /*position: absolute;*/
+    top: 480px;
+    text-align: center;
+    /*padding-left: 10px;*/
+}
+
+.spxc {
+   font-size: 13px;
+}
+
+.shml {
+	width: 360px;
+	text-align: center;
+	margin-top: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	position: absolute;
+	top: 595px;
+}
+
+.shml:hover {
+	color: #ddf;
+}
+
