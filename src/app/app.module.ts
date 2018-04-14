@@ -3,11 +3,17 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { FieldComponent } from './components/field.component';
+import { SectorComponent } from './components/sector.component';
+import { BallComponent } from './components/ball.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FieldComponent,
+    SectorComponent,
+    BallComponent,
   ],
   imports: [
     BrowserModule

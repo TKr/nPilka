@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
-
+  field;
   constructor() {
 //    var gra = new game(new board(), new bot());
 //
@@ -22,6 +22,10 @@ export class AppComponent {
 //    gra.plansza.addline(104,104,line_bramka_top);
 //    gra.plansza.render($('boisko'));
 //    gra.next_move();
+
+  }
+
+  ngOnInit() {
 
   }
 }

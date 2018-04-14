@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Define the title of the page -->
+    <title>nChess 0.3</title>
+    <!-- Define the page content type -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!-- custom styles for application -->
+    <link rel="stylesheet" href="nChess.css" type="text/css" media="screen">
+    <script src="./code/widget.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./code/json2.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        (function(window) {
+            if (window.widget) {
+                ///window.menu.showSoftkeys();
+                window.menu.setLeftSoftkeyLabel(' ', (function() {})) /// disable left button
+                window.menu.hideSoftkeys();
+                window.widget.setNavigationEnabled(false);
+                /*if (window.widget.isrotationsupported) {
+                     window.widget.setDisplayPortrait();
+                }*/
+            }
+        })(window);
+
+        function $(d) {
+            return document.getElementById(d);
+        }
+    </script>
+    <script src="./code/controls.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./code/display.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./code/bot.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body onload="windowResized();" onresize="windowResized();">
+
+<div id="full_view">
+
+<div id="pagecont">
+
+<div id="game" style="/* visibility: hidden */">
+    <div class="left_button" onclick="showinfo()"></div>
+    <div class="right_button" onclick="save_and_exit();"></div>
+    <div id="boisko" class="boisko"></div>
+</div>
+
+<div id="infopage">
+    <div class="right_button" onclick="showgame();"></div>
+    <br/>
+    <div class="iheader">nChess v0.3</div>
+    <div class="itext"><br/>(c) 2012 Paweł Pyrczak<br/><br/></div>
+    <div class="itext" style="font-size: 13px;">
+            This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.<br/>
+    <br/>
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.<br/>
+    <br/>
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see (http://www.gnu.org/licenses/).<br/>
+    <br/>
+    Oprogramowanie wykorzystuje silnik szachowy p4wn opracowany przez Douglasa&nbsp;Bandalla (http://p4wn.sourceforge.net/). Wszystkie wprowadzone modyfikacje są udostępnione na podstawie licencji GPLv3.
+    <br/>
+    <br/>
+    Chess engine ported to Symbian Web Runtime by Paweł&nbsp;Pyrczak.<br/>
+    All images was created using GIMP software.<br/><br/>
+    Podziękowania dla:<br/>
+    <span onclick="change_skin();">Douglas&nbsp;Bandall<br/>
+    Adam Pyrczak<br/>
+    Paulina Pyrczak<br/>
+    Joanna Sasal</span>
+    <span><br/><br/>niespodzianka: Kliknięcie na nazwiska powyżej zmienia wygląd pion&oacute;w :)</span>
+    </div>
+</div>
+<div id="quitpage">
+    <br/><br/><br/><br/><br/><br/>
+    <div class="iheader">nChess v0.3</div>
+    <div class="itext"><br/>(c) 2012 Paweł Pyrczak<br/><br/><br/></div>
+    <div class="itext" style="font-size: 20px; padding: 20px; width: 320px;">
+    Dziękuję za używanie tego oprogramowania.<br/><br/>
+    Więcej informacji o tym oprogramowaniu, lub o ewentualnych uaktualnieniach znajdziesz na<br/>http://nchess.pyrczak.pl/<br/>
+    albo w Nokia Store<br/>(http://store.ovi.com)
+    <br/>
+
+    </div>
+</div>
+
+</div>
+
+<div id="badrotation">
+<div style="margin: 40px 0px 0px 40px;">
+<img src="./Icon.png"> &nbsp; &nbsp; <span>nChess v0.3</span><br/><br/><br/>
+Ta Aplikacja działa prawidłowo tylko w orientacji pionowej<br/>
+Obr&oacute;ć odpowiednio urządzenie.
+</div>
+</div>
+
+</div>
+
+<div id="homeScreenView" class="view hidden">
+<img src="./Icon.png" style="margin-bottom: -18px;"> &nbsp; &nbsp; nChess v0.3
+</div>
+<script>
+var gra = new game(new board(), new bot());
+
+gra.plansza.addline(1,9,line_bottom); /// zaczynamy od dołu
+gra.plansza.addline(10,18,line_bottom_plus_1);
+for (var i=9; i<=63; i+=9) {
+    gra.plansza.addline((10+i),(18+i),line);
+}
+gra.plansza.addline(82,90,line_top_minus_1);
+gra.plansza.addline(91,99,line_top);
+gra.plansza.addline(-4,-4,line_bramka_bottom);
+gra.plansza.addline(104,104,line_bramka_top);
+gra.plansza.render($('boisko'));
+gra.next_move();
+</script>
+</body>
+</html>
