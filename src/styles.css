@@ -5,7 +5,7 @@ table td, table th {padding : 0;}
 form { /*display: none*/ }
 
 body {
-	overflow: hidden;
+/* overflow: hidden;*/
 }
 
 #game {

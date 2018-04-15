@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  template: `<div class="ball"></div>`,
   selector: 'ball',
+  template: `<div class="ball"></div>`,
   styles: [`
   .ball {
     position: absolute; z-index: 90;
