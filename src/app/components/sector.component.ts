@@ -27,7 +27,7 @@ export class SectorComponent {
   constructor() {
   }
 
-  private getTop(sector) {
+  getTop(sector) {
     let y = 0;
     if (sector.type === 'sector') {
       y = (545 - (45 * Math.floor((sector.index - 1) / 9))) - 2;
@@ -42,7 +42,7 @@ export class SectorComponent {
     return y + 'px';
   }
 
-  private getLeft(sector) {
+  getLeft(sector) {
     let x = 0;
     if (sector.type === 'sector') {
       x = (45 * ((sector.index - 1) % 9)) - 2;
