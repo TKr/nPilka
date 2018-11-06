@@ -7,5 +7,6 @@ serve:
 	./ng serve --base-href=/
 
 prod:
-	./ng build --env=prod --prod --aot --buildOptimizer --no-sourcemaps --base-href=/
+	./ng build --prod --aot --buildOptimizer --base-href=/
+#	./ng build --env=prod --prod --aot --buildOptimizer --no-sourcemaps --base-href=/
 
