@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
     width: 25px; height: 25px;
     margin-top: -15px;
     margin-left: -10px;
-    background: url("./assets/image/ball.png") no-repeat top left;
+    background: url("assets/image/ball.png") no-repeat top left;
   }
 `],
 })

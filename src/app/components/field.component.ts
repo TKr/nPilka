@@ -21,7 +21,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styles: [
 `
   .game {
-    background: url("./assets/image/tlo.jpg") top left no-repeat;
+    background: url("assets/image/tlo.jpg") top left no-repeat;
     height: 640px;
     width: 360px;
   }
@@ -31,7 +31,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     height: 640px;
     overflow: hidden;
     position: relative;
-    background: url("./assets/image/tlo_boisko.png") no-repeat top left;
+    background: url("assets/image/tlo_boisko.png") no-repeat top left;
    }
 `
   ],
