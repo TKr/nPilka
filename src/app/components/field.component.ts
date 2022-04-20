@@ -5,11 +5,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 <div class="game">
   <div class="field">
     <sector class="sector" *ngFor="let sector of field; let i = index"
-      [sector]="sector">
+      [sector]="sector" (sectorClicked)="click($event)">
     </sector>
   </div>
 </div>
 <button (click)="ball = ball + 1; refreshBall()">zmien</button>{{ ball }}
+<pre>
+  {{ clicked | json }}
+</pre>
 <pre>
   {{ field | json }}
 </pre>
@@ -40,6 +43,7 @@ export class FieldComponent implements OnInit {
   @Output() fieldChange: EventEmitter<any> = new EventEmitter();
   @Output() ballChange: EventEmitter<any> = new EventEmitter();
 
+  clicked;
 
   constructor() {
   }
@@ -148,5 +152,11 @@ export class FieldComponent implements OnInit {
     } else if (!current && render) {
       render.ball = true;
     }
+  }
+
+  click(data) {
+    this.clicked = data;
+    console.log('dalej klikasz');
+
   }
 }

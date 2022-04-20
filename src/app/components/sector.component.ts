@@ -3,7 +3,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   template: `
 <div class="sector"
-  [style.top]="getTop(sector)" [style.left]="getLeft(sector)">
+  [style.top]="getTop(sector)" [style.left]="getLeft(sector)" (click)="click(sector)">
+    <div class="dot"></div>
     <ball *ngIf="sector.ball"></ball>
 </div>
 
@@ -14,7 +15,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   .sector {
     width: 5px;
     height: 5px;
+    padding: 10px;
     position: absolute;
+  }
+
+  .dot {
+    width: 5px;
+    height: 5px;
     background-color: green;
   }
 `
@@ -23,6 +30,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class SectorComponent {
 
   @Input() sector;
+  @Output() sectorClicked: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }
@@ -39,7 +47,7 @@ export class SectorComponent {
       }
     }
 
-    return y + 'px';
+    return (y-10) + 'px';
   }
 
   getLeft(sector) {
@@ -50,6 +58,10 @@ export class SectorComponent {
       x = 178;
     }
 
-    return x + 'px';
+    return (x-10) + 'px';
+  }
+
+  click(sector) {
+    this.sectorClicked.emit(sector);
   }
 }
